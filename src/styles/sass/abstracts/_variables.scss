@@ -1,0 +1,70 @@
+$breakpoint-tablets: "(min-width: 48em)";
+$breakpoint-large-tablets: "(min-width: 64em)";
+$breakpoint-desktops: "(min-width: 75em)";
+
+$color-neutral: (
+  900: #1c1a19,
+  800: #201e1d,
+  700: #34302d,
+  600: #4a4846,
+  400: #c0bfbf,
+  300: #dedcda,
+  200: #efedeb,
+  100: #fbf9f7,
+  0: #fff,
+);
+
+$color-blue: (
+  200: #e1f1fe,
+  500: #93cefc,
+  700: #75b0de,
+  800: #5792c0,
+  900: #022b4a,
+);
+
+$color-green: (
+  200: #e9f5ea,
+  500: #9dd3a9,
+  700: #008531,
+  900: #132a18,
+);
+
+$color-yellow: (
+  200: #fff5e1,
+  500: #facc79,
+  700: #ea9806,
+  900: #4a3003,
+);
+
+$color-red: (
+  400: #f04438,
+  600: #d92d20,
+);
+
+$spacing: (
+  2: 0.2rem,
+  4: 0.4rem,
+  6: 0.6rem,
+  8: 0.8rem,
+  12: 1.2rem,
+  16: 1.6rem,
+  20: 2rem,
+  24: 2.4rem,
+  32: 3.2rem,
+  40: 4rem,
+  48: 4.8rem,
+  64: 6.4rem,
+  80: 8rem,
+);
+
+$radius: (
+  4: 0.4rem,
+  6: 0.6rem,
+  8: 0.8rem,
+  10: 1rem,
+  12: 1.2rem,
+  16: 1.6rem,
+  20: 2rem,
+  24: 2.4rem,
+  full: 99rem,
+);
