@@ -11,12 +11,11 @@ class Navigation {
 
   handleEvents() {
     this.menuBtn.addEventListener("click", (e) => {
-      console.log("clicked", e);
+      const isNavigationOpen =
+        this.menuBtn.getAttribute("aria-expanded") === "true";
 
-      this.menuList.toggleAttribute(
-        "hidden",
-        !this.menuList.hasAttribute("hidden"),
-      );
+      this.menuBtn.setAttribute("aria-expanded", !isNavigationOpen);
+      this.menuList.dataset.state = isNavigationOpen ? "closed" : "open";
     });
   }
 }

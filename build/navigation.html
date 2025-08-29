@@ -11,14 +11,19 @@
       type="button"
       class="navigation__menu-btn"
       aria-expanded="false"
-      aria-controls="navigation"
+      aria-controls="navigation-list"
     >
       <svg class="navigation__menu-icon">
         <use href="./img/svgsprite/sprite.symbol.svg#icon-menu"></use>
       </svg>
     </button>
 
-    <ul class="navigation__list" role="list" hidden>
+    <ul
+      id="navigation-list"
+      class="navigation__list"
+      role="list"
+      data-state="closed"
+    >
       <li>
         <a href="./index.html" data-active="true">Home</a>
       </li>
