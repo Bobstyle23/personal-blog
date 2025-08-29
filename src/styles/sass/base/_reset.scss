@@ -6,6 +6,10 @@
   box-sizing: border-box;
 }
 
+@view-transition {
+  navigation: auto;
+}
+
 html {
   font-size: 62.5%;
   hanging-punctuation: first last;
@@ -23,6 +27,7 @@ body {
   font-family: "DMSans", sans-serif;
   font-weight: 500;
   background-color: $color-neutral-100;
+  @include containerWidth(144rem);
 }
 
 h1,

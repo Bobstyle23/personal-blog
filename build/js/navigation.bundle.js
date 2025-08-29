@@ -1,0 +1,1 @@
+new class{constructor(){this.cacheDom(),this.handleEvents()}cacheDom(){this.menuBtn=document.querySelector(".navigation__menu-btn"),this.menuList=document.querySelector(".navigation__list")}handleEvents(){this.menuBtn.addEventListener("click",t=>{console.log("clicked",t),this.menuList.toggleAttribute("hidden",!this.menuList.hasAttribute("hidden"))})}};

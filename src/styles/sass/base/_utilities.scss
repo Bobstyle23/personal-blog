@@ -3,5 +3,12 @@
 }
 
 .container {
-  @include containerWidth(64rem);
+  max-width: 64rem;
+  margin-block: $spacing-16;
+  margin-inline: $spacing-16;
+
+  @include respond-to("(min-width: 40em)") {
+    margin-block: $spacing-20;
+    margin-inline: auto;
+  }
 }
