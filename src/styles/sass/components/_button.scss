@@ -1,0 +1,14 @@
+.primary-button {
+  @extend %button-style;
+  @extend %text-preset-6;
+
+  &:hover {
+    background-color: $color-blue-700;
+  }
+
+  &:focus {
+    box-shadow:
+      0 0 0 2px $color-neutral-0,
+      0 0 0 4px $color-blue-800;
+  }
+}

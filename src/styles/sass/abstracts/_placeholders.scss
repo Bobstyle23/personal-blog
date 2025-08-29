@@ -7,3 +7,14 @@
   display: grid;
   grid-template-columns: 1fr;
 }
+
+%button-style {
+  width: 15.8rem;
+  height: 5.1rem;
+  padding-block: 1.2rem;
+  padding-inline: 2.4rem;
+  border-radius: 1rem;
+  background-color: #93cefc;
+  color: #1c1a19;
+  transition: all 0.25s ease;
+}
