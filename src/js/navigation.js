@@ -2,7 +2,6 @@ class Navigation {
   constructor() {
     this.cacheDOM();
     this.toggleMobileNavigation();
-
     Navigation.#initResizeObserver();
   }
 
@@ -18,34 +17,40 @@ class Navigation {
   }
 
   cacheDOM() {
-    this.toggleNavigation = document.querySelector(
+    this.navigationToggleBtn = document.querySelector(
       "[aria-controls='navigation-list']",
     );
-    this.navigationMenu = document.querySelectorAll(".navigation__list li");
-
+    this.manuItems = document.querySelectorAll(".navigation__list li");
+    this.menuIconWrapper = document.querySelector(".navigation__menu-icon");
     this.menuIcon = document.querySelector(".navigation__menu-icon use");
-    this.menuIconSvg = document.querySelector(".navigation__menu-icon");
-    console.log(this.menuIcon.getAttribute("href"));
   }
 
   toggleMobileNavigation() {
-    this.toggleNavigation.addEventListener("click", () => {
-      const isOpen =
-        this.toggleNavigation.getAttribute("aria-expanded") === "true";
-      this.toggleNavigation.setAttribute("aria-expanded", !isOpen);
-      this.toggleNavigation.classList.toggle("navigation__menu-btn--close");
-      if (!isOpen) {
-        this.menuIcon.setAttribute(
-          "href",
-          "./img/svgsprite/sprite.symbol.svg#icon-menu-close",
-        );
-      } else {
-        this.menuIcon.setAttribute(
-          "href",
-          "./img/svgsprite/sprite.symbol.svg#icon-menu",
-        );
-      }
-      this.menuIconSvg.classList.toggle("navigation__menu-icon--close");
+    const ICONS = {
+      open: "./img/svgsprite/sprite.symbol.svg#icon-menu-close",
+      close: "./img/svgsprite/sprite.symbol.svg#icon-menu",
+    };
+
+    this.navigationToggleBtn.addEventListener("click", () => {
+      const isNavigationOpen =
+        this.navigationToggleBtn.getAttribute("aria-expanded") === "true";
+
+      const navigationState = !isNavigationOpen;
+
+      this.navigationToggleBtn.setAttribute("aria-expanded", navigationState);
+      this.navigationToggleBtn.classList.toggle(
+        "navigation__menu-btn--close",
+        navigationState,
+      );
+
+      this.menuIcon.setAttribute(
+        "href",
+        navigationState ? ICONS.open : ICONS.close,
+      );
+      this.menuIconWrapper.classList.toggle(
+        "navigation__menu-icon--close",
+        navigationState,
+      );
     });
   }
 }
