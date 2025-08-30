@@ -28,9 +28,18 @@
     display: none;
   }
 
+  &__menu-btn--close {
+    border-radius: $radius-10;
+    background-color: $color-neutral-700;
+  }
+
   &__menu-icon {
     width: 2rem;
     height: 2rem;
+  }
+
+  &__menu-icon--close {
+    stroke: $color-neutral-0;
   }
 
   &__theme-btn {
@@ -78,7 +87,7 @@
 }
 
 @include respond-to("(max-width: 40em)") {
-  [aria-expanded="true"] + .navigation__list {
+  [aria-expanded="true"] ~ .navigation__list {
     display: block;
     opacity: 1;
 
@@ -94,6 +103,10 @@
       display: block;
       justify-self: end;
     }
+
+    /* &__menu-btn--close { */
+    /*   display: none; */
+    /* } */
 
     &__list {
       display: none;

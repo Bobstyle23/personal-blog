@@ -22,6 +22,10 @@ class Navigation {
       "[aria-controls='navigation-list']",
     );
     this.navigationMenu = document.querySelectorAll(".navigation__list li");
+
+    this.menuIcon = document.querySelector(".navigation__menu-icon use");
+    this.menuIconSvg = document.querySelector(".navigation__menu-icon");
+    console.log(this.menuIcon.getAttribute("href"));
   }
 
   toggleMobileNavigation() {
@@ -29,6 +33,19 @@ class Navigation {
       const isOpen =
         this.toggleNavigation.getAttribute("aria-expanded") === "true";
       this.toggleNavigation.setAttribute("aria-expanded", !isOpen);
+      this.toggleNavigation.classList.toggle("navigation__menu-btn--close");
+      if (!isOpen) {
+        this.menuIcon.setAttribute(
+          "href",
+          "./img/svgsprite/sprite.symbol.svg#icon-menu-close",
+        );
+      } else {
+        this.menuIcon.setAttribute(
+          "href",
+          "./img/svgsprite/sprite.symbol.svg#icon-menu",
+        );
+      }
+      this.menuIconSvg.classList.toggle("navigation__menu-icon--close");
     });
   }
 }
