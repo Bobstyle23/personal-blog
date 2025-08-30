@@ -1,114 +1,141 @@
 .navigation {
   @extend %grid;
   grid-template-columns: auto 1fr auto;
-  column-gap: $spacing-6;
-  background-color: $color-neutral-0;
+  align-items: center;
+  column-gap: $spacing-20;
   padding: $spacing-6;
+  background-color: $color-neutral-0;
+  box-shadow:
+    inset 0 0 0 1px $color-neutral-200,
+    0 6px 10px rgba($color: #7b7b7b, $alpha: 0.03);
   border-radius: $radius-10;
-  box-shadow: inset 0 0 0 1px $color-neutral-200;
-  filter: drop-shadow(0 6px 10px rgba($color: #7b7b7b, $alpha: 0.03));
   position: relative;
 
-  @include respond-to($breakpoint-tablets) {
-    column-gap: $spacing-20;
+  &__avatar,
+  &__menu-btn,
+  &__theme-btn {
+    width: 4rem;
+    height: 4rem;
   }
 
   &__avatar {
-    width: 4rem;
-    height: 4rem;
-    border-radius: $radius-10;
-  }
-
-  &__menu-icon {
-    width: 4rem;
-    height: 4rem;
-    padding: $spacing-12;
-    fill: $color-neutral-700;
-    justify-self: end;
-  }
-
-  &__theme-icon {
-    width: 1.7rem;
-    height: 1.7rem;
-    fill: $color-neutral-0;
-    stroke: $color-neutral-900;
-  }
-
-  &__menu-btn,
-  &__theme-btn {
-    background: none;
+    border-radius: $radius-8;
   }
 
   &__menu-btn {
-    width: fit-content;
-    justify-self: end;
-    @include respond-to($breakpoint-tablets) {
-      display: none;
-    }
+    padding: 1rem;
+    background: none;
+    display: none;
+  }
+
+  &__menu-icon {
+    width: 2rem;
+    height: 2rem;
   }
 
   &__theme-btn {
     background-color: $color-neutral-100;
-    width: 4rem;
-    height: 4rem;
     box-shadow: inset 0 0 0 1px $color-neutral-200;
     border-radius: $radius-8;
     padding: $spacing-12;
   }
 
-  &__list {
-    display: none;
+  &__theme-icon {
+    width: 1.7rem;
+    height: 1.7rem;
+    fill: transparent;
+    stroke: $color-neutral-900;
+  }
 
-    &[data-state="open"] {
-      @extend %flexbox;
+  &__list {
+    @extend %flexbox;
+    flex-flow: row nowrap;
+    gap: $spacing-24;
+    justify-self: end;
+
+    li {
+      a {
+        @extend %text-preset-8;
+        color: $color-neutral-600;
+        position: relative;
+
+        &::after {
+          content: "";
+          position: absolute;
+          background-color: $color-blue-500;
+          display: block;
+        }
+
+        &[data-active="true"]::after,
+        &:hover::after {
+          left: 0;
+          width: 100%;
+          height: 0.3rem;
+        }
+      }
+    }
+  }
+}
+
+@include respond-to("(max-width: 40em)") {
+  [aria-expanded="true"] + .navigation__list {
+    display: block;
+    opacity: 1;
+
+    @starting-style {
+      opacity: 0;
+    }
+  }
+
+  .navigation {
+    column-gap: $spacing-6;
+
+    &__menu-btn {
+      display: block;
+      justify-self: end;
+    }
+
+    &__list {
+      display: none;
+      flex-flow: column nowrap;
+      position: absolute;
+      top: calc(5.2rem + 1.2rem);
+      left: 50%;
+      transform: translate(-50%, 0);
       width: 100%;
-      background-color: $color-neutral-0;
       padding: $spacing-12;
+      background-color: $color-neutral-0;
       border-radius: $radius-10;
       box-shadow:
         inset 0 0 0 1px $color-neutral-200,
         0 8px 15px rgba($color: #080619, $alpha: 0.06);
-      position: absolute;
-      top: calc(5.2rem + 1.2rem);
-    }
+      opacity: 0;
+      transition:
+        opacity 0.5s,
+        display 0.5s;
+      transition-behavior: allow-discrete;
 
-    li {
-      padding-block: $spacing-6;
+      li {
+        padding-block: $spacing-6;
 
-      &:last-of-type {
-        padding-block-end: 0;
+        &:first-child {
+          padding-block-start: 0;
+        }
+
+        &:last-child {
+          padding-block-end: 0;
+        }
+
+        &:not(:last-child) {
+          border-bottom: 1px solid $color-neutral-200;
+        }
+
+        a {
+          &::after {
+            content: none;
+          }
+        }
       }
-
-      &:first-of-type {
-        padding-block-start: 0;
-      }
-
-      &:not(:last-child) {
-        border-bottom: 1px solid $color-neutral-200;
-      }
-
-      a {
-        @extend %text-preset-6;
-        color: $color-neutral-900;
-      }
-
-      @include respond-to($breakpoint-tablets) {
-        border-bottom: none !important;
-        padding-block: 0 !important;
-      }
-    }
-
-    @include respond-to($breakpoint-tablets) {
-      display: flex;
-      flex-flow: row nowrap;
-      align-items: center;
-      gap: $spacing-24;
-      position: static;
-      background: none;
-      box-shadow: none;
-      justify-self: end;
-      width: auto;
-      padding: 0;
     }
   }
 }

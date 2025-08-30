@@ -7,8 +7,13 @@
   margin-block: $spacing-16;
   margin-inline: $spacing-16;
 
-  @include respond-to("(min-width: 40em)") {
+  @include respond-to("(min-width: 42em)") {
     margin-block: $spacing-20;
     margin-inline: auto;
   }
+}
+
+.resizing * {
+  animation: none !important;
+  transition: none !important;
 }

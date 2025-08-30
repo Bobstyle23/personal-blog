@@ -1,21 +1,34 @@
 class Navigation {
   constructor() {
-    this.cacheDom();
-    this.handleEvents();
+    this.cacheDOM();
+    this.toggleMobileNavigation();
+
+    Navigation.#initResizeObserver();
   }
 
-  cacheDom() {
-    this.menuBtn = document.querySelector(".navigation__menu-btn");
-    this.menuList = document.querySelector(".navigation__list");
+  static #initResizeObserver() {
+    const resizeObserver = new ResizeObserver(() => {
+      document.body.classList.add("resizing");
+
+      requestAnimationFrame(() => {
+        document.body.classList.remove("resizing");
+      });
+    });
+    resizeObserver.observe(document.body);
   }
 
-  handleEvents() {
-    this.menuBtn.addEventListener("click", (e) => {
-      const isNavigationOpen =
-        this.menuBtn.getAttribute("aria-expanded") === "true";
+  cacheDOM() {
+    this.toggleNavigation = document.querySelector(
+      "[aria-controls='navigation-list']",
+    );
+    this.navigationMenu = document.querySelectorAll(".navigation__list li");
+  }
 
-      this.menuBtn.setAttribute("aria-expanded", !isNavigationOpen);
-      this.menuList.dataset.state = isNavigationOpen ? "closed" : "open";
+  toggleMobileNavigation() {
+    this.toggleNavigation.addEventListener("click", () => {
+      const isOpen =
+        this.toggleNavigation.getAttribute("aria-expanded") === "true";
+      this.toggleNavigation.setAttribute("aria-expanded", !isOpen);
     });
   }
 }
