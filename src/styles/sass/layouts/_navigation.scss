@@ -68,6 +68,10 @@
         color: $color-neutral-600;
         position: relative;
 
+        &[data-active="true"] {
+          color: $color-neutral-700;
+        }
+
         &::after {
           content: "";
           position: absolute;
@@ -198,11 +202,8 @@
       li {
         a {
           color: $color-neutral-400;
-
-          @include respond-to("(max-width: 40em)") {
-            &[data-active="true"] {
-              color: $color-neutral-0;
-            }
+          &[data-active="true"] {
+            color: $color-neutral-0;
           }
         }
 
