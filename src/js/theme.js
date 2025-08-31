@@ -1,16 +1,14 @@
+const _theme = new WeakMap();
+
 class Theme {
   constructor() {
     this.cacheDOM();
-    this.toggleTheme();
-
-    this.ICONS = {
-      light: "./img/svgsprite/sprite.symbol.svg#icon-moon",
-      dark: "./img/svgsprite/sprite.symbol.svg#icon-sun",
-    };
+    this.bindEvents();
+    this.updateThemeAndIcon();
   }
 
   static {
-    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+    if (window.matchMedia("(prefers-color-scheme:dark)").matches) {
       document.documentElement.dataset.theme = "dark";
     } else {
       document.documentElement.dataset.theme = "light";
@@ -22,33 +20,43 @@ class Theme {
         document.documentElement.dataset.theme = event.matches
           ? "dark"
           : "light";
+        Theme.#notifyUpdate();
       });
   }
 
+  static ICONS = {
+    light: "./img/svgsprite/sprite.symbol.svg#icon-moon",
+    dark: "./img/svgsprite/sprite.symbol.svg#icon-sun",
+  };
+
   static #switchTheme() {
-    if (document.documentElement.dataset.theme === "light") {
-      document.documentElement.dataset.theme = "dark";
-      return;
-    }
-    document.documentElement.dataset.theme = "light";
+    document.documentElement.dataset.theme =
+      document.documentElement.dataset.theme === "light" ? "dark" : "light";
+    Theme.#notifyUpdate();
+  }
+
+  static #instances = new Set();
+
+  static #notifyUpdate() {
+    Theme.#instances.forEach((instance) => instance.updateThemeAndIcon());
   }
 
   cacheDOM() {
     this.themeBtn = document.querySelector(".navigation__theme-btn");
-    this.themeIconWrapper = document.querySelector(".navigation__theme-icon");
     this.themeIcon = document.querySelector(".navigation__theme-icon use");
   }
 
-  toggleTheme() {
+  bindEvents() {
+    Theme.#instances.add(this);
     this.themeBtn.addEventListener("click", () => {
       Theme.#switchTheme();
-      this.themeIcon.setAttribute(
-        "href",
-        document.documentElement.dataset.theme === "light"
-          ? this.ICONS.dark
-          : this.ICONS.light,
-      );
     });
   }
+
+  updateThemeAndIcon() {
+    const theme = document.documentElement.dataset.theme;
+    this.themeIcon.setAttribute("href", Theme.ICONS[theme]);
+  }
 }
+
 new Theme();
