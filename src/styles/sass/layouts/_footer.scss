@@ -1,0 +1,45 @@
+.footer {
+  @extend %grid;
+  grid-template-columns: repeat(2, auto);
+  align-items: center;
+  column-gap: 1rem;
+  padding-block-start: $spacing-16;
+  border-top: 1px solid $color-neutral-200;
+
+  &__copyright p {
+    @extend %text-preset-8;
+    color: $color-neutral-600;
+  }
+
+  &__icons {
+    @extend %flexbox;
+    flex-flow: row nowrap;
+    gap: $spacing-16;
+    justify-self: end;
+  }
+
+  &__icon {
+    width: 1.8rem;
+    height: 1.6rem;
+    fill: $color-neutral-600;
+    transition: all 0.25s ease;
+
+    &:hover {
+      cursor: pointer;
+      opacity: 0.7;
+    }
+  }
+}
+
+:root[data-theme="dark"] {
+  .footer {
+    border-color: $color-neutral-700;
+    &__copyright p {
+      color: $color-neutral-400;
+    }
+
+    &__icon {
+      fill: $color-neutral-400;
+    }
+  }
+}

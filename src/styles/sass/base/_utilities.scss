@@ -11,9 +11,37 @@
     margin-block: $spacing-20;
     margin-inline: auto;
   }
+
+  @include respond-to($breakpoint-large-tablets) {
+    margin-block-end: $spacing-32;
+  }
+}
+
+.wrapper {
+  max-width: 62rem;
+  margin-inline: 0.4rem;
+  padding-block: $spacing-32;
+  padding-inline: 1rem;
+  border-left: 1px solid $color-neutral-200;
+  border-right: 1px solid $color-neutral-200;
+  height: 100dvh;
+
+  @include respond-to("(min-width:42em)") {
+    margin-inline: auto;
+  }
+
+  @include respond-to($breakpoint-large-tablets) {
+    padding-block: $spacing-48;
+  }
 }
 
 .resizing * {
   animation: none !important;
   transition: none !important;
+}
+
+:root[data-theme="dark"] {
+  .wrapper {
+    border-color: $color-neutral-700;
+  }
 }

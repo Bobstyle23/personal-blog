@@ -7,7 +7,11 @@
     <title>Main page</title>
   </head>
   <body>
-    <div class="container">@@include('./navigation.html')</div>
+    <div class="container">
+      @@include('./navigation.html')
+      <div class="wrapper">@@include("./footer.html")</div>
+    </div>
+
     <script src="./js/index.bundle.js"></script>
   </body>
 </html>

@@ -1,5 +1,3 @@
-const _theme = new WeakMap();
-
 class Theme {
   constructor() {
     this.cacheDOM();
