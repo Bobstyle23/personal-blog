@@ -38,15 +38,3 @@
     }
   }
 }
-
-:root[data-theme="dark"] {
-  .footer {
-    &__copyright p {
-      color: $color-neutral-400;
-    }
-
-    &__icon {
-      fill: $color-neutral-400;
-    }
-  }
-}

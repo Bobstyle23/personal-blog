@@ -3,6 +3,16 @@
     background-color: $color-neutral-900;
   }
 
+  .navigation {
+    &__list li a {
+      &:focus {
+        box-shadow:
+          0 0 0 2px $color-neutral-800,
+          0 0 0 4px $color-blue-800;
+      }
+    }
+  }
+
   .intro {
     &__title {
       color: $color-neutral-0;
@@ -19,6 +29,13 @@
 
         &:hover {
           opacity: 0.7;
+        }
+
+        &:focus {
+          box-shadow:
+            inset 0 0 0 1px $color-neutral-700,
+            0 0 0 2px $color-neutral-800,
+            0 0 0 4px $color-blue-800;
         }
       }
     }
@@ -41,17 +58,51 @@
     &__link {
       color: $color-neutral-0;
     }
+
+    &__link {
+      &:focus {
+        box-shadow:
+          0 0 0 2px $color-neutral-800,
+          0 0 0 4px $color-blue-800;
+      }
+    }
   }
 
   .article {
     &__title {
       a {
         color: $color-neutral-0;
+
+        &:focus {
+          box-shadow:
+            0 0 0 2px $color-neutral-800,
+            0 0 0 4px $color-blue-800;
+        }
       }
     }
 
     &__date {
       color: $color-neutral-400;
+    }
+  }
+
+  .footer {
+    &__copyright p {
+      color: $color-neutral-400;
+    }
+
+    &__icon {
+      fill: $color-neutral-400;
+    }
+
+    &__icons {
+      a:focus,
+      a:focus-visible,
+      a:focus-within {
+        box-shadow:
+          0 0 0 2px $color-neutral-800,
+          0 0 0 4px $color-blue-800;
+      }
     }
   }
 }
