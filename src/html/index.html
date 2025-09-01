@@ -9,7 +9,99 @@
   <body>
     <div class="container">
       @@include('./navigation.html')
-      <div class="wrapper">@@include("./footer.html")</div>
+      <main class="main wrapper">
+        <header class="intro">
+          <h1 class="intro__title">Hi, I'm Paulina 👋</h1>
+          <section class="intro__text">
+            <p class="intro__desc">
+              I’m on a journey to become a front-end web developer. I love
+              building little projects, trying out new coding techniques, and
+              sharing what I learn along the way. When I’m not at my desk,
+              you’ll find me reading, hiking through the mountains, or
+              challenging myself on rock-climbing walls.
+            </p>
+            <br />
+            <br />
+            <p class="intro__desc">
+              I started this blog to document my progress, keep myself
+              accountable, and hopefully inspire anyone else who’s learning to
+              code. Welcome to my corner of the internet, and thanks for
+              stopping by!
+            </p>
+          </section>
+          <section class="intro__icons">
+            <a href="#">
+              <svg class="intro__icon">
+                <use href="./img/svgsprite/sprite.symbol.svg#logo-x"></use>
+              </svg>
+            </a>
+
+            <a href="#">
+              <svg class="intro__icon">
+                <use href="./img/svgsprite/sprite.symbol.svg#logo-github"></use>
+              </svg>
+            </a>
+            <a href="#">
+              <svg class="intro__icon">
+                <use
+                  href="./img/svgsprite/sprite.symbol.svg#logo-linkedin"
+                ></use>
+              </svg>
+            </a>
+            <a href="#">
+              <svg class="intro__icon">
+                <use
+                  href="./img/svgsprite/sprite.symbol.svg#logo-frontend-mentor"
+                ></use>
+              </svg>
+            </a>
+          </section>
+        </header>
+        <section class="divider"></section>
+        <section class="articles">
+          <h2 class="articles__title">Latest Articles</h2>
+          <div class="articles__container">
+            <article class="article">
+              <h3 class="article__title">
+                <a href="#">
+                  Balancing Hobbies and Coding: How Hiking and Rock Climbing
+                  Help Me Stay Motivated
+                </a>
+              </h3>
+              <p class="article__date">February 18, 2025</p>
+            </article>
+            <article class="article">
+              <h3 class="article__title">
+                <a href="#">
+                  Balancing Hobbies and Coding: How Hiking and Rock Climbing
+                  Help Me Stay Motivated
+                </a>
+              </h3>
+              <p class="article__date">February 18, 2025</p>
+            </article>
+            <article class="article">
+              <h3 class="article__title">
+                <a href="#">
+                  Balancing Hobbies and Coding: How Hiking and Rock Climbing
+                  Help Me Stay Motivated
+                </a>
+              </h3>
+              <p class="article__date">February 18, 2025</p>
+            </article>
+            <article class="article">
+              <h3 class="article__title">
+                <a href="#">
+                  Balancing Hobbies and Coding: How Hiking and Rock Climbing
+                  Help Me Stay Motivated
+                </a>
+              </h3>
+              <p class="article__date">February 18, 2025</p>
+            </article>
+          </div>
+          <a href="#" class="articles__link">View all articles</a>
+        </section>
+        <div class="divider">@@include("./footer.html")</div>
+      </main>
     </div>
 
     <script src="./js/index.bundle.js"></script>

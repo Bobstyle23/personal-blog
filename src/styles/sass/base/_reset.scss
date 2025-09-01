@@ -97,10 +97,4 @@ button {
   width: 1px;
 }
 
-:root[data-theme="dark"] {
-  body {
-    background-color: $color-neutral-900;
-  }
-}
-
 /* NOTE: use lvh, svh, or dvh instead vh */
