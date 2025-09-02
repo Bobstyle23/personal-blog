@@ -1,28 +1,47 @@
+const _activeMenu = new WeakMap();
+import { Observer } from "./utilities";
+
 class Navigation {
   constructor() {
     this.cacheDOM();
     this.toggleMobileNavigation();
-    Navigation.#initResizeObserver();
+    this.checkActiveMenu();
   }
 
-  static #initResizeObserver() {
-    const resizeObserver = new ResizeObserver(() => {
-      document.body.classList.add("resizing");
+  set activeMenuName(menuName) {
+    if (!String(menuName)) {
+      throw new Error("Menu name must be a string!");
+    }
+    _activeMenu.set(this, menuName);
+  }
 
-      requestAnimationFrame(() => {
-        document.body.classList.remove("resizing");
-      });
-    });
-    resizeObserver.observe(document.body);
+  get activeMenuName() {
+    return _activeMenu.get(this);
   }
 
   cacheDOM() {
     this.navigationToggleBtn = document.querySelector(
       "[aria-controls='navigation-list']",
     );
-    this.manuItems = document.querySelectorAll(".navigation__list li");
+    this.menuItems = document.querySelectorAll(".navigation__list li a");
     this.menuIconWrapper = document.querySelector(".navigation__menu-icon");
     this.menuIcon = document.querySelector(".navigation__menu-icon use");
+  }
+
+  checkActiveMenu() {
+    const location = new Observer();
+    const currentLocation = location.getLocation();
+
+    //NOTE: update activeMenu with setter
+    this.activeMenuName = currentLocation;
+
+    this.menuItems.forEach((menu) => {
+      menu.removeAttribute("data-active");
+      //NOTE: checking activeMenu with getter
+      if (menu.getAttribute("href").includes(this.activeMenuName)) {
+        menu.setAttribute("data-active", "true");
+      }
+    });
   }
 
   toggleMobileNavigation() {
