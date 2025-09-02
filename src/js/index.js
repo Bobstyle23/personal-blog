@@ -1,37 +1,6 @@
 const _data = new WeakMap();
 
-class DataManager {
-  static parse(rawData) {
-    try {
-      return JSON.parse(rawData) || [];
-    } catch {
-      return [];
-    }
-  }
-
-  static formatDate(isoDate) {
-    try {
-      const date = new Date(isoDate);
-      return date.toLocaleDateString("en-US", {
-        year: "numeric",
-        month: "long",
-        day: "numeric",
-      });
-    } catch {
-      throw new Error("Invalid date!");
-    }
-  }
-}
-
-class Renderer {
-  static renderArticle(article) {
-    return `
-      <article class="article">
-          <h3 class="article__title"><a href="./blog.html?id=${article.slug}">${article.title}</a></h3>
-          <p class="article__date">${DataManager.formatDate(article.publishedAt)}</p>
-      </article>`;
-  }
-}
+import { DataManager, Renderer } from "./utilities";
 
 class Home {
   constructor() {

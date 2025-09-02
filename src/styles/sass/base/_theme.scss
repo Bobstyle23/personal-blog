@@ -18,10 +18,6 @@
       color: $color-neutral-0;
     }
 
-    &__desc {
-      color: $color-neutral-400;
-    }
-
     &__icons {
       a {
         background-color: $color-neutral-800;
@@ -54,7 +50,6 @@
   }
 
   .articles {
-    &__title,
     &__link {
       color: $color-neutral-0;
     }
@@ -84,6 +79,14 @@
     &__date {
       color: $color-neutral-400;
     }
+  }
+
+  .page__title {
+    color: $color-neutral-0;
+  }
+
+  .page__desc {
+    color: $color-neutral-400;
   }
 
   .footer {

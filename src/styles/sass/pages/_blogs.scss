@@ -1,0 +1,14 @@
+.blogs {
+  @extend %flexbox;
+  gap: $spacing-24;
+
+  &__header {
+    @extend %flexbox;
+    gap: $spacing-6;
+  }
+
+  &__articles {
+    @extend %flexbox;
+    gap: $spacing-20;
+  }
+}

@@ -9,8 +9,19 @@
   <body>
     <div class="container">
       @@include("./navigation.html")
-      <h1>Blogs</h1>
-      <div class="divider">@@include("./footer.html")</div>
+      <main class="blogs wrapper">
+        <header class="blogs__header">
+          <h2 class="blogs__title page__title">My Articles</h2>
+          <p class="blogs__desc page__desc">
+            Below are all my recent blog posts. Click on any title to read the
+            full article.
+          </p>
+        </header>
+        <div class="divider"></div>
+        <section class="blogs__articles"></section>
+        <div class="divider">@@include("./footer.html")</div>
+      </main>
     </div>
+    <script src="./js/blogs.bundle.js"></script>
   </body>
 </html>

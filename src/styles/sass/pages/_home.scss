@@ -34,12 +34,6 @@
     @extend %flexbox;
   }
 
-  &__desc {
-    @extend %text-preset-7;
-    color: $color-neutral-600;
-    text-wrap: auto;
-  }
-
   &__icons {
     @extend %flexbox;
     flex-flow: row nowrap;
@@ -80,22 +74,6 @@
 .articles {
   @extend %grid;
   row-gap: $spacing-32;
-
-  &__title {
-    @extend %text-preset-2;
-    color: $color-neutral-700;
-    position: relative;
-
-    &::after {
-      content: "";
-      position: absolute;
-      bottom: 0.8rem;
-      margin-inline-start: 1rem;
-      background-color: $color-blue-500;
-      width: 4rem;
-      height: 0.3rem;
-    }
-  }
 
   &__container {
     @extend %flexbox;

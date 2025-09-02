@@ -27,6 +27,7 @@ const config = {
     navigation: "./src/js/navigation.js",
     theme: "./src/js/theme.js",
     utilities: "./src/js/utilities.js",
+    blogs: "./src/js/blogs.js",
   },
   output: {
     filename: "[name].bundle.js",
