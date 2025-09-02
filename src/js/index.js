@@ -1,44 +1,69 @@
 const _data = new WeakMap();
 
+class DataManager {
+  static parse(rawData) {
+    try {
+      return JSON.parse(rawData) || [];
+    } catch {
+      return [];
+    }
+  }
+
+  static formatDate(isoDate) {
+    try {
+      const date = new Date(isoDate);
+      return date.toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      });
+    } catch {
+      throw new Error("Invalid date!");
+    }
+  }
+}
+
+class Renderer {
+  static renderArticle(article) {
+    return `
+      <article class="article">
+          <h3 class="article__title"><a href="./blog.html?id=${article.slug}">${article.title}</a></h3>
+          <p class="article__date">${DataManager.formatDate(article.publishedAt)}</p>
+      </article>`;
+  }
+}
+
 class Home {
   constructor() {
-    _data.set(this, Home.#parseData(sessionStorage.getItem("blogData")));
+    _data.set(this, DataManager.parse(sessionStorage.getItem("blogData")));
     this.cacheDOM();
     this.bindEvents();
     this.renderArticles();
+  }
+
+  set data(newData) {
+    if (!Array.isArray(newData)) {
+      throw new Error("Data must be an array");
+    }
+    _data.set(this, newData);
+  }
+
+  get data() {
+    return _data.get(this);
   }
 
   static #isInitialized = false;
 
   static {
     if (!this.#isInitialized) {
-      const data = require("./data.json");
-      sessionStorage.setItem("blogData", JSON.stringify(data));
+      Home.#initData();
       this.#isInitialized = true;
     }
   }
 
-  static #parseData(data) {
-    try {
-      return JSON.parse(data) || [];
-    } catch {
-      return [];
-    }
-  }
-
-  static #parseDate(isoDate) {
-    try {
-      const date = new Date(isoDate);
-      const formattedDate = date.toLocaleDateString("en-US", {
-        year: "numeric",
-        month: "long",
-        day: "numeric",
-      });
-
-      return formattedDate;
-    } catch {
-      throw new Error("Invalid date!");
-    }
+  static #initData() {
+    const data = require("./data.json");
+    sessionStorage.setItem("blogData", JSON.stringify(data));
   }
 
   cacheDOM() {
@@ -47,20 +72,11 @@ class Home {
 
   bindEvents() {}
 
-  getData() {
-    return _data.get(this);
-  }
-
   renderArticles() {
-    const data = this.getData();
-    const articles = data.slice(0, 5).map((article) => {
-      return `
-        <article class="article">
-            <h3 class="article__title"><a href="./blog.html?id=${article.slug}">${article.title}</a></h3>
-            <p class="article__date">${Home.#parseDate(article.publishedAt)}</p>
-        </article>
-             `;
-    });
+    const data = this.data;
+    const articles = data
+      .slice(0, 5)
+      .map((article) => Renderer.renderArticle(article));
     this.articlesContainer.innerHTML = articles.join("");
   }
 }
