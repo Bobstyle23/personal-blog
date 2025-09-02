@@ -36,7 +36,7 @@
 
 %text-preset-8-italic {
   @include typography(1.6rem, 400, 1.3, -0.02rem);
-  font-family: "DMSans Italic";
+  font-style: italic;
 }
 
 %text-preset-9 {
