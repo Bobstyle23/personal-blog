@@ -1,0 +1,148 @@
+.blog {
+  &__header {
+    @extend %flexbox;
+    gap: $spacing-16;
+
+    @include respond-to($breakpoint-tablets) {
+      gap: $spacing-12;
+    }
+  }
+
+  &__content {
+    padding-block-end: $spacing-24;
+
+    @include respond-to($breakpoint-tablets) {
+      padding-block-end: $spacing-32;
+    }
+
+    @include respond-to($breakpoint-large-tablets) {
+      padding-block-end: $spacing-48;
+    }
+  }
+
+  &__title {
+    @extend %text-preset-1;
+    color: $color-neutral-700;
+    text-wrap: auto;
+  }
+
+  &__date {
+    @extend %text-preset-8-italic;
+    color: $color-neutral-600;
+    margin-block-end: $spacing-16;
+
+    @include respond-to($breakpoint-tablets) {
+      margin-block-end: $spacing-12;
+    }
+  }
+
+  &__table {
+    border-collapse: collapse;
+    th,
+    td {
+      border: 1px solid $color-neutral-200;
+      padding-inline: $spacing-12;
+      padding-block: $spacing-8;
+    }
+
+    th {
+      @extend %text-preset-6;
+      color: $color-neutral-700;
+      text-align: left;
+    }
+
+    td {
+      @extend %text-preset-8;
+      color: $color-neutral-600;
+    }
+  }
+
+  &__text {
+    @extend %text-preset-7;
+    color: $color-neutral-600;
+    text-wrap: auto;
+
+    &:not(:first-of-type) {
+      margin-block: $spacing-12;
+    }
+
+    &:last-of-type {
+      margin-block-end: 0;
+    }
+  }
+
+  &__subtitle {
+    @extend %text-preset-3;
+    color: $color-neutral-700;
+    text-wrap: auto;
+    margin-block-end: $spacing-12;
+
+    &:first-of-type {
+      margin-block-end: $spacing-16;
+    }
+  }
+
+  &__sub-subtitle {
+    @extend %text-preset-4;
+    color: $color-neutral-700;
+    margin-block-end: $spacing-12;
+  }
+
+  &__divider {
+    border: none;
+    height: 1px;
+    background-color: $color-neutral-200;
+    margin-block: $spacing-24;
+
+    &:first-of-type {
+      margin-block: $spacing-32;
+    }
+  }
+
+  &__list {
+    @extend %text-preset-7;
+    color: $color-neutral-600;
+    padding-inline-start: $spacing-24;
+    @extend %flexbox;
+    gap: $spacing-12;
+  }
+
+  &__pre {
+    background-color: $color-neutral-200 !important;
+    padding: $spacing-12;
+    border-radius: $radius-12;
+    margin-block: $spacing-12;
+  }
+
+  code {
+    @extend %text-preset-9;
+    background-color: $color-neutral-200;
+  }
+
+  &__blockquote {
+    padding-inline: $spacing-12;
+    padding-block: $spacing-6;
+    @extend %text-preset-7;
+    margin-block: $spacing-16;
+    position: relative;
+    color: $color-neutral-700;
+
+    strong {
+      display: inline-block;
+      margin-block-end: 1rem;
+    }
+
+    p {
+      padding-inline-start: $spacing-8;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      width: 0.4rem;
+      height: 100%;
+      background-color: $color-neutral-400;
+    }
+  }
+}

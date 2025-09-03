@@ -86,6 +86,13 @@ export class Utilities {
       </article>`;
   }
 
+  static parseContentAsHTML(content) {
+    const parser = new DOMParser();
+    const document = parser.parseFromString(marked.parse(content), "text/html");
+    const elements = document.body.children;
+    return elements;
+  }
+
   extractLocation(url = window.location.href) {
     const location = url.split("/").filter(Boolean).splice(2, 1).join("");
     this.location = location;

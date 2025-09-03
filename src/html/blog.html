@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Personal Blog | Blog</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css"
+      rel="stylesheet"
+    />
+    <link href="./css/main.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="container">
+      @@include("./navigation.html")
+      <main class="blog wrapper">
+        <header class="blog__header">
+          <h2 class="blog__title"></h2>
+          <p class="blog__date"></p>
+        </header>
+        <section class="blog__content"></section>
+        <div class="divider"></div>
+      </main>
+
+      <div class="wrapper footer__wrapper">@@include("./footer.html")</div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-css.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="./js/blog.bundle.js"></script>
+  </body>
+</html>
