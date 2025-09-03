@@ -1,5 +1,5 @@
 const _activeMenu = new WeakMap();
-import { Observer } from "./utilities";
+import { Utilities } from "./utilities";
 
 class Navigation {
   constructor() {
@@ -29,8 +29,8 @@ class Navigation {
   }
 
   checkActiveMenu() {
-    const location = new Observer();
-    const currentLocation = location.getLocation();
+    const utilities = new Utilities();
+    const currentLocation = utilities.getLocation();
 
     //NOTE: update activeMenu with setter
     this.activeMenuName = currentLocation;
