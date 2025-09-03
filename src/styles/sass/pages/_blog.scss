@@ -100,11 +100,11 @@
   }
 
   &__list {
+    @extend %flexbox;
+    gap: $spacing-12;
     @extend %text-preset-7;
     color: $color-neutral-600;
     padding-inline-start: $spacing-24;
-    @extend %flexbox;
-    gap: $spacing-12;
   }
 
   &__pre {
@@ -120,12 +120,12 @@
   }
 
   &__blockquote {
+    @extend %text-preset-7;
+    color: $color-neutral-700;
     padding-inline: $spacing-12;
     padding-block: $spacing-6;
-    @extend %text-preset-7;
     margin-block: $spacing-16;
     position: relative;
-    color: $color-neutral-700;
 
     strong {
       display: inline-block;

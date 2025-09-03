@@ -114,4 +114,43 @@
       }
     }
   }
+
+  .blog {
+    &__title,
+    &__subtitle,
+    &__sub-subtitle {
+      color: $color-neutral-0;
+    }
+
+    &__text,
+    &__date,
+    &__list {
+      color: $color-neutral-400;
+    }
+
+    &__blockquote {
+      color: $color-neutral-0;
+
+      &::before {
+        background-color: $color-neutral-600;
+      }
+    }
+
+    &__divider {
+      background-color: $color-neutral-700;
+    }
+
+    &__pre,
+    code {
+      background-color: $color-neutral-700 !important;
+    }
+
+    &__table {
+      th,
+      td {
+        border-color: $color-neutral-600;
+        color: $color-neutral-400;
+      }
+    }
+  }
 }
