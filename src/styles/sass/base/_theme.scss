@@ -81,6 +81,12 @@
     }
   }
 
+  .blogs {
+    &__articles {
+      border-top-color: $color-neutral-700;
+    }
+  }
+
   .page__title {
     color: $color-neutral-0;
   }

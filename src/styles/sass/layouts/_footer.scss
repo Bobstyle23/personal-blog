@@ -2,7 +2,18 @@
   @extend %grid;
   grid-template-columns: repeat(2, auto);
   column-gap: 1rem;
-  padding-block: $spacing-16;
+
+  &__wrapper {
+    padding-block: $spacing-16;
+
+    @include respond-to($breakpoint-tablets) {
+      padding-block-end: $spacing-20;
+    }
+
+    @include respond-to($breakpoint-large-tablets) {
+      padding-block-end: $spacing-32;
+    }
+  }
 
   &__copyright p {
     @extend %text-preset-8;

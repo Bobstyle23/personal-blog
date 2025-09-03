@@ -1,6 +1,6 @@
 .blogs {
-  @extend %flexbox;
-  gap: $spacing-24;
+  @extend %grid;
+  row-gap: $spacing-24;
 
   &__header {
     @extend %flexbox;
@@ -10,5 +10,12 @@
   &__articles {
     @extend %flexbox;
     gap: $spacing-20;
+    border-top: 1px solid $color-neutral-200;
+    padding-block-start: $spacing-20;
+    padding-block-end: $spacing-8;
+
+    @include respond-to($breakpoint-large-tablets) {
+      padding-block-end: $spacing-24;
+    }
   }
 }

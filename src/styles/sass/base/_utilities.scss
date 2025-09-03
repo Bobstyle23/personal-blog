@@ -1,7 +1,6 @@
 [hidden] {
   display: none;
 }
-
 .container {
   max-width: 64rem;
   margin-block: $spacing-16;
@@ -20,7 +19,7 @@
 .wrapper {
   max-width: 62rem;
   margin-inline: 0.4rem;
-  padding-block: $spacing-32;
+  padding-block-start: $spacing-32;
   padding-inline: 1rem;
   border-left: 1px solid $color-neutral-200;
   border-right: 1px solid $color-neutral-200;
@@ -30,7 +29,7 @@
   }
 
   @include respond-to($breakpoint-large-tablets) {
-    padding-block: $spacing-48;
+    padding-block-start: $spacing-48;
   }
 }
 
