@@ -14,7 +14,7 @@
   &__title {
     @extend %text-preset-2;
     color: $color-neutral-700;
-    max-width: 25rem;
+    width: fit-content;
     height: 4.2rem;
     position: relative;
 

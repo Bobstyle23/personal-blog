@@ -153,4 +153,15 @@
       }
     }
   }
+
+  .about {
+    &__title,
+    &__subtitle {
+      color: $color-neutral-0;
+    }
+
+    &__text {
+      color: $color-neutral-400;
+    }
+  }
 }
