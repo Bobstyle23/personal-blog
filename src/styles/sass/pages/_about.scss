@@ -45,4 +45,14 @@
     color: $color-neutral-700;
     margin-block-end: $spacing-16;
   }
+
+  &__icons {
+    @include respond-to($breakpoint-tablets) {
+      margin-block-end: $spacing-8;
+    }
+
+    @include respond-to($breakpoint-large-tablets) {
+      margin-block-end: $spacing-24;
+    }
+  }
 }
