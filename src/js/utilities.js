@@ -94,9 +94,11 @@ export class Utilities {
   }
 
   extractLocation(url = window.location.href) {
-    const location = url.split("/").filter(Boolean).splice(2, 1).join("");
-    this.location = location;
-    return location;
+    const parts = url.split("/").filter(Boolean);
+    if (url.endsWith("/")) {
+      return "index.html";
+    }
+    return parts[parts.length - 1] || "index.html";
   }
 
   getLocation() {
