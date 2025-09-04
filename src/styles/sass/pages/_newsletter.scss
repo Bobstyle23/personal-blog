@@ -1,7 +1,6 @@
 .newsletter {
   @extend %grid;
-  grid-template-rows: auto 1fr;
-  height: 100vh;
+
   row-gap: $spacing-24;
 
   &__header {
