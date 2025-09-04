@@ -9,8 +9,33 @@
   <body>
     <div class="container">
       @@include("./navigation.html")
-      <h1>Newsletter</h1>
-      <div class="divider">@@include("./footer.html")</div>
+      <main class="newsletter wrapper">
+        <header class="newsletter__header">
+          <h2 class="newsletter__title">Newsletter</h2>
+          <p class="newsletter__desc">
+            Want to stay updated on my latest articles, coding tutorials, and
+            personal adventures? Sign up for my newsletter! It’s a simple way to
+            keep track of new posts and occasional coding tips I discover. Just
+            drop your email in the sign-up box, and I’ll send you updates
+            whenever there’s something new to share.
+          </p>
+          <p class="newsletter__cta-text">
+            I’d love to have you along for the ride and also hear about your own
+            journey!
+          </p>
+        </header>
+        <section class="newsletter__cta-box">
+          @@include("./input-group.html")
+          <button type="button" class="newsletter__btn primary-button">
+            Stay updated
+          </button>
+          <p class="newsletter__info-text">
+            Unsubscribe anytime. No spam, I promise 🙂
+          </p>
+        </section>
+        <div class="divider"></div>
+      </main>
+      <div class="wrapper footer__wrapper">@@include("./footer.html")</div>
     </div>
   </body>
 </html>

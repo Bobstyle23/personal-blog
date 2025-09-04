@@ -1,0 +1,38 @@
+.newsletter {
+  @extend %grid;
+  grid-template-rows: auto 1fr;
+  height: 80dvh;
+  row-gap: $spacing-24;
+
+  &__header {
+    @extend %flexbox;
+    gap: $spacing-16;
+  }
+
+  &__title {
+    @extend %text-preset-2;
+    color: $color-neutral-700;
+  }
+
+  &__desc {
+    @extend %text-preset-7;
+    color: $color-neutral-600;
+    text-wrap: auto;
+  }
+
+  &__cta-text {
+    @extend %text-preset-5;
+    color: $color-neutral-700;
+  }
+
+  &__btn {
+    margin-block-start: $spacing-16;
+    margin-block-end: $spacing-8;
+  }
+
+  &__info-text {
+    @extend %text-preset-8;
+    color: $color-neutral-600;
+    text-wrap: auto;
+  }
+}

@@ -53,8 +53,59 @@
 <script src="./js/theme.bundle.js"></script>
 <script src="./js/navigation.bundle.js"></script>
 
-      <h1>Newsletter</h1>
-      <div class="divider"><footer class="footer">
+      <main class="newsletter wrapper">
+        <header class="newsletter__header">
+          <h2 class="newsletter__title">Newsletter</h2>
+          <p class="newsletter__desc">
+            Want to&#160;stay updated on&#160;my&#160;latest articles, coding tutorials, and
+            personal adventures? Sign up&#160;for my&#160;newsletter! It&#8217;s a&#160;simple way to
+            keep track of&#160;new posts and occasional coding tips I&#160;discover. Just
+            drop your email in&#160;the sign-up box, and I&#8217;ll send you updates
+            whenever there&#8217;s something new to&#160;share.
+          </p>
+          <p class="newsletter__cta-text">
+            I&#8217;d love to&#160;have you along for the ride and also hear about your own
+            journey!
+          </p>
+        </header>
+        <section class="newsletter__cta-box">
+          <div class="input__group">
+  <label for="email" class="input__label">Email Address</label>
+  <input
+    type="email"
+    id="email"
+    name="email"
+    placeholder="email@example.com"
+    class="input"
+  />
+
+  <div class="input__feedback" hidden>
+    <svg class="input__icon input__icon--success" hidden>
+      <use href="./img/svgsprite/sprite.symbol.svg#icon-success"></use>
+    </svg>
+    <svg class="input__icon input__icon--error" hidden>
+      <use href="./img/svgsprite/sprite.symbol.svg#icon-error"></use>
+    </svg>
+
+    <p class="input__message input__message--success" aria-live="polite" hidden>
+      You&#8217;re subscribed! Check your inbox for updates.
+    </p>
+    <p class="input__message input__message--error" role="alert" hidden>
+      Please enter a&#160;valid email address.
+    </p>
+  </div>
+</div>
+
+          <button type="button" class="newsletter__btn primary-button">
+            Stay updated
+          </button>
+          <p class="newsletter__info-text">
+            Unsubscribe anytime. No&#160;spam, I&#160;promise 🙂
+          </p>
+        </section>
+        <div class="divider"></div>
+      </main>
+      <div class="wrapper footer__wrapper"><footer class="footer">
   <section class="footer__copyright">
     <p>Made with ❤️ and ☕️</p>
   </section>
