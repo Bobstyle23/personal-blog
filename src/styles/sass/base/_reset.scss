@@ -28,6 +28,33 @@ body {
   font-weight: 500;
   background-color: $color-neutral-100;
   @include containerWidth(144rem);
+  position: relative;
+
+  @include respond-to($breakpoint-large-tablets) {
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      background: url(../img/svgicons/pattern-light.svg) no-repeat
+        center/contain;
+      width: 42.3rem;
+      height: 42.3rem;
+    }
+
+    &::before {
+      top: 22.7rem;
+      left: 0;
+      transform: translateX(-50%);
+    }
+
+    &::after {
+      width: calc(42.3rem / 2);
+      background-size: cover;
+      background-position: left;
+      top: 0;
+      right: 0;
+    }
+  }
 }
 
 h1,

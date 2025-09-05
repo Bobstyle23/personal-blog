@@ -1,6 +1,11 @@
 :root[data-theme="dark"] {
   body {
     background-color: $color-neutral-900;
+
+    &::before,
+    &::after {
+      background-image: url(../img/svgicons/pattern-dark.svg);
+    }
   }
 
   .navigation {
