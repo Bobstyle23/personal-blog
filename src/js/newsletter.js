@@ -62,7 +62,7 @@ class Newsletter {
     }
 
     // PERF: Invalid email
-    if (!isEmailValid) {
+    if (!isEmailValid && this.inputFieldValue) {
       this.inputField.classList.add("input--error");
       this.inputFeedbackMessages.forEach((message) => {
         if (message.classList.contains("input__message--error")) {
