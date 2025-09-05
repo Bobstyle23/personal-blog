@@ -43,26 +43,8 @@ class Newsletter {
     const isEmailValid = utilities.validateEmail(this.inputFieldValue);
     this.resetInputFieldState();
 
-    //PERF: Empty field, required error
-    if (!this.inputFieldValue) {
-      this.inputField.classList.add("input--error");
-      this.inputFeedbackMessages.forEach((message) => {
-        if (message.classList.contains("input__message--error")) {
-          message.removeAttribute("hidden");
-          message.textContent = "This field is required!";
-        }
-      });
-      this.inputFeedbackIcons.forEach((icon) => {
-        if (icon.classList.contains("input__icon--error")) {
-          icon.removeAttribute("hidden");
-        }
-      });
-      this.valid = false;
-      return;
-    }
-
     // PERF: Invalid email
-    if (!isEmailValid && this.inputFieldValue) {
+    if (!isEmailValid) {
       this.inputField.classList.add("input--error");
       this.inputFeedbackMessages.forEach((message) => {
         if (message.classList.contains("input__message--error")) {
