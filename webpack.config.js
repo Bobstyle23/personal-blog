@@ -29,6 +29,7 @@ const config = {
     utilities: "./src/js/utilities.js",
     blogs: "./src/js/blogs.js",
     blog: "./src/js/blog.js",
+    newsletter: "./src/js/newsletter.js",
   },
   output: {
     filename: "[name].bundle.js",
