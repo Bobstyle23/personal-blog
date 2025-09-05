@@ -6,19 +6,27 @@ class Theme {
   }
 
   static {
-    if (window.matchMedia("(prefers-color-scheme:dark)").matches) {
-      document.documentElement.dataset.theme = "dark";
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme) {
+      document.documentElement.dataset.theme = savedTheme;
     } else {
-      document.documentElement.dataset.theme = "light";
+      document.documentElement.dataset.theme = window.matchMedia(
+        "(prefers-color-scheme: dark)",
+      ).matches
+        ? "dark"
+        : "light";
     }
 
     window
       .matchMedia("(prefers-color-scheme: dark)")
       .addEventListener("change", (event) => {
-        document.documentElement.dataset.theme = event.matches
-          ? "dark"
-          : "light";
-        Theme.#notifyUpdate();
+        const savedTheme = localStorage.getItem("theme");
+        if (!savedTheme) {
+          document.documentElement.dataset.theme = event.matches
+            ? "dark"
+            : "light";
+          Theme.#notifyUpdate();
+        }
       });
   }
 
@@ -30,6 +38,8 @@ class Theme {
   static #switchTheme() {
     document.documentElement.dataset.theme =
       document.documentElement.dataset.theme === "light" ? "dark" : "light";
+
+    localStorage.setItem("theme", document.documentElement.dataset.theme);
     Theme.#notifyUpdate();
   }
 
