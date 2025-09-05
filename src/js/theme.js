@@ -6,7 +6,7 @@ class Theme {
   }
 
   static {
-    const savedTheme = localStorage.getItem("theme");
+    const savedTheme = sessionStorage.getItem("theme");
     if (savedTheme) {
       document.documentElement.dataset.theme = savedTheme;
     } else {
@@ -20,7 +20,7 @@ class Theme {
     window
       .matchMedia("(prefers-color-scheme: dark)")
       .addEventListener("change", (event) => {
-        const savedTheme = localStorage.getItem("theme");
+        const savedTheme = sessionStorage.getItem("theme");
         if (!savedTheme) {
           document.documentElement.dataset.theme = event.matches
             ? "dark"
@@ -39,7 +39,7 @@ class Theme {
     document.documentElement.dataset.theme =
       document.documentElement.dataset.theme === "light" ? "dark" : "light";
 
-    localStorage.setItem("theme", document.documentElement.dataset.theme);
+    sessionStorage.setItem("theme", document.documentElement.dataset.theme);
     Theme.#notifyUpdate();
   }
 
